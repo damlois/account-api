@@ -7,7 +7,6 @@ A REST API for managing customers, accounts, and transactions.
 - Customer management
 - Account management  
 - Transaction processing
-- Swagger documentation
 
 ## API Endpoints
 
@@ -18,11 +17,11 @@ A REST API for managing customers, accounts, and transactions.
 - `PUT /customers/{id}` - Update customer
 
 ### Accounts
-- `POST /customers/{id}/accounts` - Create account
-- `GET /customers/{id}/accounts` - List accounts
-- `PUT /customers/{id}/accounts` - Update account
-- `GET /accounts/{id}` - Get account
-- `GET /customers/{custId}/accounts/{acctId}` - Get specific account
+- `POST /customers/{id}/accounts` - Create account for customer
+- `GET /customers/{id}/accounts` - List customer accounts
+- `PUT /accounts/{id}` - Update account by ID
+- `GET /accounts/{id}` - Get account by ID
+- `GET /customers/{custId}/accounts/{acctId}` - Get specific customer account
 
 ### Transactions
 - `POST /accounts/{id}/transactions` - Create transaction
@@ -34,32 +33,23 @@ A REST API for managing customers, accounts, and transactions.
 - TypeScript
 - Prisma
 - SQLite
-- Swagger
 
 ## Getting Started
 
 1. Install dependencies:
    ```bash
-   npm install
+   yarn install
    ```
 
 2. Set up the database:
    ```bash
-   npx prisma generate
-   npx prisma db push
+   yarn prisma generate
+   yarn prisma db push
    ```
 
 3. Start the development server:
    ```bash
-   npm run start:dev
+   yarn start:dev
    ```
 
 4. Access the API at `http://localhost:3000`
-5. View Swagger documentation at `http://localhost:3000/api`
-
-## Development
-
-- `npm run start` - Start production server
-- `npm run start:dev` - Start development server
-- `npm run build` - Build the application
-- `npm run test` - Run tests
