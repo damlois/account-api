@@ -8,25 +8,6 @@ A REST API for managing customers, accounts, and transactions.
 - Account management  
 - Transaction processing
 
-## API Endpoints
-
-### Customers
-- `POST /customers` - Create customer
-- `GET /customers` - List customers
-- `GET /customers/{id}` - Get customer
-- `PUT /customers/{id}` - Update customer
-
-### Accounts
-- `POST /customers/{id}/accounts` - Create account for customer
-- `GET /customers/{id}/accounts` - List customer accounts
-- `PUT /accounts/{id}` - Update account by ID
-- `GET /accounts/{id}` - Get account by ID
-- `GET /customers/{custId}/accounts/{acctId}` - Get specific customer account
-
-### Transactions
-- `POST /accounts/{id}/transactions` - Create transaction
-- `GET /accounts/{id}/transactions` - List transactions
-
 ## Technology Stack
 
 - NestJS
@@ -53,3 +34,22 @@ A REST API for managing customers, accounts, and transactions.
    ```
 
 4. Access the API at `http://localhost:3000`
+
+## API Endpoints
+
+### Customers
+- `POST /customers` - Create customer
+- `GET /customers` - List customers
+- `GET /customers/{id}` - Get customer
+- `PUT /customers/{id}` - Update customer
+
+### Accounts
+- `POST /customers/{id}/accounts` - Create account for customer
+- `GET /customers/{id}/accounts` - List customer accounts
+- `PUT /accounts/{id}` - Update account by ID
+- `GET /accounts/{id}` - Get account by ID
+- `GET /customers/{custId}/accounts/{acctId}` - Get specific customer account
+
+### Transactions
+- `POST /accounts/{id}/transactions` - Create transaction
+- `GET /accounts/{id}/transactions` - List transactions
