@@ -1,0 +1,57 @@
+generator client {
+  provider = "prisma-client-js"
+  output   = "../generated/prisma"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = "file:./dev.db"
+}
+
+model Customer {
+  id          Int       @id @default(autoincrement())
+  firstName   String
+  middleName  String
+  lastName    String
+  street      String
+  city        String
+  state       String
+  postalCode  String
+  country     String
+  email       String    @unique
+  phone       String
+  dateOfBirth DateTime
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+  accounts    Account[]
+
+  @@map("customers")
+}
+
+model Account {
+  accountId    Int       @id @default(autoincrement())
+  acctType     String
+  balance      Float     @default(0)
+  status       String
+  custId       Int
+  createdBy    String
+  createdOn    DateTime  @default(now())
+  updatedOn    DateTime  @updatedAt
+  updatedBy    String?
+  customer     Customer  @relation(fields: [custId], references: [id], onDelete: Cascade)
+  transactions Transaction[]
+
+  @@map("accounts")
+}
+
+model Transaction {
+  transactionId   Int      @id @default(autoincrement())
+  transactionDate DateTime @default(now())
+  transactionType String
+  amount          Float
+  accountId       Int
+  performedBy     String
+  account         Account  @relation(fields: [accountId], references: [accountId], onDelete: Cascade)
+
+  @@map("transactions")
+}
